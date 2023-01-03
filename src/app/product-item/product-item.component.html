@@ -1,0 +1,95 @@
+<div
+  class="card"
+  style="
+    width: 18rem;
+    margin: 10px 5px;
+
+    border-radius: 10px;
+  "
+>
+  <img
+    src="{{ product.thumbnail }}"
+    alt=""
+    style="
+      height: 250px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    "
+  />
+  <div
+    class="card-body"
+    style="display: flex; flex-direction: row; justify-content: space-between"
+  >
+    <div
+      [routerLink]="['/product-detail', product.id]"
+      [state]="product"
+      style="cursor: hand"
+    >
+      <h5 class="card-title" style="text-align: center; cursor: pointer">
+        {{ product.title }}
+      </h5>
+    </div>
+
+    <li class="list-group-item" style="text-align: end; width: 75px">
+      {{ product.price }} $
+    </li>
+  </div>
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5%;
+      "
+    >
+      <span
+        *ngFor="let star of [1, 2, 3, 4, 5]"
+        [ngClass]="{ selected: star <= product.rating }"
+        [ngClass]="{ unselected: star > product.rating }"
+        title="Donner {{ star }} étoiles"
+        style="font-size: x-large"
+        >★</span
+      >
+    </div>
+
+    <div style="margin-right: 10px">
+      <button class="btn" (click)="showForm()" *ngIf="!isCart">
+        Add to cart
+      </button>
+      <button
+        class="btn"
+        (click)="removeProductFromCart(this.product)"
+        *ngIf="isCart"
+      >
+        Remove from cart
+      </button>
+    </div>
+  </div>
+  <form *ngIf="showFormFlag" style="margin: auto" class="form-group">
+    <label for="quantity" class="form-control-label">Quantity:</label><br />
+    <input
+      type="number"
+      id="quantity"
+      name="quantity"
+      class="form-control"
+      #quantityInput
+    /><br />
+    <button
+      type="submit"
+      (click)="addProductToCart(this.product, quantityInput.value)"
+      style="margin: 5%; margin-left: auto"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
+  </form>
+</div>

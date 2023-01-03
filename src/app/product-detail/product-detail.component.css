@@ -1,0 +1,38 @@
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: #f5f5f5;
+}
+
+span {
+  color: goldenrod;
+  fill: goldenrod;
+}
+.unselected {
+  color: grey;
+}
+
+.hedding {
+  font-size: 20px;
+  color: #ab8181;
+}
+
+.main-section {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, 5%);
+}
+
+.left-side-product-box img {
+  width: 100%;
+}
+
+.left-side-product-box .sub-img img {
+  margin-top: 5px;
+  width: 83px;
+  height: 100px;
+}
+
+.right-side-pro-detail span {
+  font-size: 15px;
+}

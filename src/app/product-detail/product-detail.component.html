@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="col-lg-8 border p-3 main-section bg-white">
+    <div class="row hedding m-0 pl-3 pt-0 pb-3">
+      {{ product.title }}
+    </div>
+    <div class="row m-4">
+      <div class="col-lg-4 left-side-product-box pb-3">
+        <img src="{{ product.thumbnail }}" class="border p-3" />
+        <span class="sub-img">
+          <img
+            src="{{ product.images[1] }}"
+            alt="No img available"
+            class="border p-2"
+          />
+          <img
+            src="{{ product.images[2] }}"
+            alt="No img available"
+            class="border p-2"
+          />
+          <img
+            src="{{ product.images[3] }}"
+            alt="No img available"
+            class="border p-2"
+          />
+        </span>
+      </div>
+      <div class="col-lg-8">
+        <div class="right-side-pro-detail border p-3 m-0">
+          <div class="row" style="margin: 3%">
+            <div class="col-lg-12">
+              <h5 style="color: grey">Don't miss this chance</h5>
+              <p class="m-0 p-0">{{ product.category }}</p>
+            </div>
+            <div class="col-lg-12">
+              <h3 class="m-0 p-0 price-pro" style="margin: 15%">
+                {{ product.price }} DH
+              </h3>
+              <hr class="p-0 m-0" />
+            </div>
+            <div class="col-lg-12 pt-2">
+              <h5>Product Detail</h5>
+              <h4 style="color: grey">{{ product.description }}</h4>
+              <hr class="m-0 pt-2 mt-2" />
+            </div>
+            <div class="col-lg-12 pt-2">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+
+                  align-items: center;
+                "
+              >
+                <span
+                  *ngFor="let star of [1, 2, 3, 4, 5]"
+                  [ngClass]="{ selected: star <= product.rating }"
+                  [ngClass]="{ unselected: star > product.rating }"
+                  title="Donner {{ star }} étoiles"
+                  style="font-size: x-large"
+                  id="star"
+                  >★</span
+                >
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <p class="tag-section">
+                <strong>Tag : </strong> {{ product.category }}
+              </p>
+            </div>
+            <div class="col-lg-12">
+              <h6>Quantity :</h6>
+              <input
+                type="number"
+                class="form-control text-center w-50"
+                value="1"
+              />
+            </div>
+            <div class="col-lg-12 mt-3">
+              <div class="row">
+                <div class="col-lg-6 pb-2">
+                  <a href="#" class="btn btn-success w-100">Add To Cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

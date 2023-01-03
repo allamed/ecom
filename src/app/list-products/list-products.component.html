@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-md-1">
+    <div style="margin-top: 45%; margin-left: 25%">
+      <div class="d-flex justify-content-center">
+        <label
+          class="form-label"
+          style="
+            font-family: 'Open Sans', sans-serif;
+            font-size: large;
+            color: darkslategray;
+          "
+          >categories</label
+        >
+      </div>
+      <select
+        class="form-control btn btn-secondary dropdown-toggle"
+        data-toggle="dropdown"
+        (change)="detectChanges($event)"
+      >
+        <option value="all" selected>all</option>
+        <option value="{{ option }}" *ngFor="let option of categories">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div style="margin-right: 1%">
+      <div
+        style="
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        "
+      >
+        <header
+          style="
+            text-align: center;
+            font-weight: 700;
+            font-size: larger;
+            margin: 25px 5px;
+          "
+        ></header>
+        <input
+          type="text"
+          name="search"
+          [(ngModel)]="searchText"
+          style="
+            border-radius: 15px;
+            height: 40px;
+            width: 250px;
+            padding: 0px 15px;
+          "
+          placeholder="Search ..."
+        />
+      </div>
+
+      <ul
+        style="
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-around;
+        "
+      >
+        <div *ngFor="let product of products | filter : searchText">
+          <app-product-item
+            [product]="product"
+            [isCart]="false"
+          ></app-product-item>
+        </div>
+        <!-- <div *ngFor="let product of productsAmazon | filter:searchText">   
+            <app-product-item [product]='product' [isCart]="false"></app-product-item>
+        </div> -->
+      </ul>
+    </div>
+  </div>
+</div>
