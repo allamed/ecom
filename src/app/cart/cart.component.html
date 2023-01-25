@@ -174,7 +174,10 @@
                     </div>
 
                     <button type="button" class="btn btn-info btn-block btn-lg">
-                      <div class="d-flex justify-content-between">
+                      <div
+                        class="d-flex justify-content-between"
+                        [routerLink]="['/register']"
+                      >
                         <span
                           >{{ getSumPrice() + getSumPrice() * 0.2 }} DH
                         </span>

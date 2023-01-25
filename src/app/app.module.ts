@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { RegisterComponent } from './register/register.component';
 //import { LoginComponent } from './login/login.component';
 //import { InscriptionComponent } from './inscription/inscription.component';
 
@@ -30,6 +31,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     CartComponent,
     ProductItemComponent,
     ProductDetailComponent,
+    RegisterComponent,
   ],
   imports: [
     NgbModule,

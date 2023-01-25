@@ -73,13 +73,13 @@
               <input
                 type="number"
                 class="form-control text-center w-50"
-                value="1"
+                #quantityInput
               />
             </div>
             <div class="col-lg-12 mt-3">
               <div class="row">
                 <div class="col-lg-6 pb-2">
-                  <a href="#" class="btn btn-success w-100">Add To Cart</a>
+                  <a href="#" class="btn btn-success w-100" (click)="addProductToCart(this.product, quantityInput.value)">Add To Cart</a>
                 </div>
               </div>
             </div>
